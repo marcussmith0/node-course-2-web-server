@@ -4,6 +4,8 @@ const fs = require("fs");
 
 const app = express();
 
+const PORT = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname + "/views/partials");
 app.set("engine view", "hbs");
 hbs.registerHelper("currentYear", () => {
@@ -65,6 +67,6 @@ app.get("/help", (req, res) => {
     res.sendFile("/public/help.html");
 });
 
-app.listen(3000, ()=> {
+app.listen(PORT, ()=> {
     console.log("server is running...");
 })
